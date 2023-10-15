@@ -1,0 +1,80 @@
+<div>
+  <app-navbar></app-navbar>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration">
+    <h2>Create Account</h2>
+    <div>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Enter Your Email"
+      />
+      <div
+      style="color: red;"
+        *ngIf="
+          registrationForm.get('email')?.hasError('required') &&
+          registrationForm.get('email')?.touched
+        "
+      >
+        Email is required.
+      </div>
+      <div
+      style="color: red;"
+        *ngIf="
+          registrationForm.get('email')?.hasError('email') &&
+          registrationForm.get('email')?.touched
+        "
+      >
+        Invalid email address.
+      </div>
+    </div>
+    <div>
+      <input
+        type="text"
+        id="firstName"
+        formControlName="Username"
+        placeholder="Enter Your Username"
+      />
+      <div
+      style="color: red;"
+        *ngIf="
+          registrationForm.get('Username')?.hasError('required') &&
+          registrationForm.get('Username')?.touched
+        "
+      >
+        User name is required.
+      </div>
+    </div>
+    <div>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Enter Your Password"
+      />
+
+      <div
+      style="color: red;"
+        *ngIf="
+          registrationForm.get('password')?.hasError('required') &&
+          registrationForm.get('password')?.touched
+        "
+      >
+        Password is required.
+      </div>
+      <div
+        *ngIf="
+          registrationForm.get('password')?.hasError('minlength') &&
+          registrationForm.get('password')?.touched
+        "
+      >
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+    <div class="btdiv">
+      <button class="btn btn-primary">Create Account</button><br />
+      OR <br />
+      <button class="btn btn-primary" (click)="GoTo_login()">Login</button><br />
+    </div>
+  </form>
+</div>

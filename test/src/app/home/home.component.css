@@ -1,0 +1,67 @@
+.home{
+    margin: 100px 42%;
+    margin-top: 9rem;
+
+}
+
+.navecon{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+}
+#Comment_bn{
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+}
+.name{
+    background-color: white;
+    font-weight: bold;
+    margin: 25px 0px 0 0;
+    padding: 5px;
+    width: 23rem;
+    border: 1px solid #666;
+    box-shadow: 0 4px 4px -2px #666(0, 0, 0, 0.2) !important;
+}
+.Comment{
+    width: 23rem;
+}
+.custom-textarea {
+    width: 150%;
+    height: 100px; 
+    border: none; 
+    border-bottom: 2px solid lightgrey; 
+    background-color: #f2f2f2; 
+    padding: 8px;
+    font-size: 16px;
+}
+.btdiv{
+    margin-top: 5%;
+    width: 150%;
+    display: flex;
+}
+.upload{
+        
+        border: none;
+        color: #666;
+        font-size: 16px;
+        cursor: pointer;
+        border-bottom: 4px solid #666; 
+        box-shadow: 0 4px 4px -2px #666(0, 0, 0, 0.2); 
+      }
+    
+img{
+    width: 23rem;
+}
+svg{
+    width: 50px;
+    padding: 5px;
+}
+#commentinpute{
+    border: none;
+  border-bottom: 1px solid #000; 
+  outline: none;
+    width: 18rem;
+}

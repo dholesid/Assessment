@@ -1,0 +1,117 @@
+
+
+
+<div>
+  <div class="navecon">
+    <app-navbar></app-navbar>
+
+  </div>
+  <div class="home">
+    <div>
+      <div>
+        <textarea
+          class="custom-textarea"
+          placeholder="Say Something..."
+          [(ngModel)]="caption"
+        ></textarea>
+      </div>
+      <div class="btdiv">
+        <button class="btn btn-primary" (click)="post()">Post</button>
+        <input
+          class="btn upload"
+          type="file"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+    </div>
+
+    <div *ngFor="let post of allpost" class="post">
+      <div class="name"> {{ post.Postedby }}</div>
+      <img *ngIf="post.Image" [src]="post.Image" />
+      <div style="font-weight: bold;"> {{ post.Caption }}</div>
+      <div>
+      
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" (click)="Likes(post.id)">
+          <path 
+            [ngStyle]="{'fill': userLikedPost(post.id) ? 'red' : 'white'}" 
+            d="M50 90s-18-16-30-28c-12-12-20-24-20-38 0-14 10-24 24-24 8 0 16 4 26 14 10-10 18-14 26-14 14 0 24 10 24 24 0 14-8 26-20 38C68 74 50 90 50 90z" 
+            stroke="black" 
+            stroke-width="1" 
+          />
+        </svg>
+        
+          
+          
+            {{ post.likesCount }} <span *ngIf="post.likesCount" > Liked It</span>
+        </div>
+          <div *ngFor="let comment of AllComments" class="Comment">
+            <ng-container *ngIf="comment.postId === post.id">
+                 <span style="font-weight: bold;">{{ comment.CommentBy }}</span> : {{ comment.Comments }}
+            </ng-container>
+        </div>
+      <div style="position: relative;width: 23rem; margin-top:1rem">
+          <input id="commentinpute" type="text" [(ngModel)]="myComment">
+          <button id="Comment_bn" (click)="sendComment(post.id)">Comment</button>
+        </div>
+        
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- <div>
+    <app-navbar></app-navbar>
+    <div class="home">
+      <div>
+        <div>
+          <textarea
+            class="custom-textarea"
+            placeholder="Say Something..."
+            [(ngModel)]="caption"
+          ></textarea>
+        </div>
+        <div class="btdiv">
+          <button class="btn btn-primary" (click)="post()">Post</button>
+          <input
+            class="btn upload"
+            type="file"
+            (change)="onFileSelected($event)"
+          />
+        </div>
+      </div>
+  
+      <div *ngFor="let post of allpost" class="post">
+        <div> {{ post.Postedby }}</div>
+        <img *ngIf="post.Image" [src]="post.Image" />
+        <div>Caption: {{ post.Caption }}</div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" (click)=" Likes(post.id)">
+                <path d="M50 90s-18-16-30-28c-12-12-20-24-20-38 0-14 10-24 24-24 8 0 16 4 26 14 10-10 18-14 26-14 14 0 24 10 24 24 0 14-8 26-20 38C68 74 50 90 50 90z" fill="red" stroke="black" stroke-width="1" />
+              </svg>
+            
+            
+            
+            {{ post.Like }} <span *ngIf="post.Like" > Liked It</span>
+          </div>
+            <div *ngFor="let comment of AllComments">
+              <ng-container *ngIf="comment.postId === post.id">
+                  {{ comment.CommentBy }}: {{ comment.Comments }}
+              </ng-container>
+          </div>
+        <div style="display: flex;justify-content: space-between;">
+            <input type="text" [(ngModel)]="myComment">
+            <button (click)="sendComment(post.id)">Comment</button>
+          </div>
+          
+      
+    </div>
+  </div>
+  
+
+ -->

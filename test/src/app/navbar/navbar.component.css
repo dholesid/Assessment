@@ -1,0 +1,10 @@
+.main{
+     height: 100px;
+    background-color: rgb(63, 63, 196)
+}
+.main h1{
+    color: white;
+    font-weight: bold;
+     margin: 0;
+    line-height: 60px; 
+}
